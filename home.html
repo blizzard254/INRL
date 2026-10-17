@@ -174,6 +174,10 @@ for(i=0;i<L.c;i++){x=i*L.fs;near=Math.abs(PX-x)<R;L.y[i]+=L.v[i]*(near?2.4:1);ro
 if(near){g.fillStyle='#ff8aa3';g.shadowColor='#ff1e4d';g.shadowBlur=12}else if(hd){g.fillStyle='#e6f5ff';g.shadowColor='#00c8ff';g.shadowBlur=10}else{g.fillStyle=L.col;g.shadowBlur=0}
 g.fillText(ch(),x,row*L.fs);if(row*L.fs>H&&Math.random()>.975){L.y[i]=0;L.v[i]=rnd(.25,.6)*L.sp}}}
 g.globalAlpha=1;g.shadowBlur=0}
+function title(){if(!MB)return;var cy=MB.y+MB.h/2,w,gr;g.save();g.font='900 '+MB.s+'px Orbitron,"Arial Black",sans-serif';g.textAlign='center';g.textBaseline='middle';w=g.measureText('BLACK-MD').width;
+gr=g.createLinearGradient(W/2-w/2,0,W/2+w/2,0);gr.addColorStop(0,'#00c8ff');gr.addColorStop(.55,'#2f6bff');gr.addColorStop(1,'#ff1e4d');
+g.shadowColor='rgba(0,200,255,.85)';g.shadowBlur=26*DP;g.fillStyle=gr;g.fillText('BLACK-MD',W/2,cy);
+g.shadowColor='rgba(255,30,77,.7)';g.shadowBlur=10*DP;g.lineWidth=Math.max(1,DP);g.strokeStyle='rgba(255,138,163,.55)';g.strokeText('BLACK-MD',W/2,cy);g.restore()}
 function shimmer(){if(!MA)return;var n=Math.round(30+25*(1+Math.sin(t*.002))),i,x,y,gs=Math.max(7*DP,MB.s*.1);g.font=Math.round(gs)+'px "Share Tech Mono",monospace';g.shadowColor='#00c8ff';g.shadowBlur=8;
 for(i=0;i<n;i++){x=MB.x+Math.random()*MB.w;y=MB.y+Math.random()*MB.h;if(MA[(y|0)*W+(x|0)]){g.fillStyle=Math.random()<.5?'#e6f5ff':'#ff6b8a';g.fillText(ch(),x,y)}}g.shadowBlur=0}
 function rings(){var i,s,n,k,a,mx=Math.max(W,H)*.55;g.font=Math.round(12*DP)+'px "Share Tech Mono",monospace';g.shadowColor='#ff1e4d';g.shadowBlur=10;g.fillStyle='#ff8aa3';
@@ -181,7 +185,7 @@ for(i=SHS.length;i--;){s=SHS[i];n=Math.round(s.r*.3)+14;g.globalAlpha=Math.max(0
 g.globalAlpha=1;g.shadowBlur=0}
 function glitch(){if(!GL&&t>GN){GL=8;GB=[rnd(0,H*.9),rnd(.03,.09)*H,rnd(-.04,.04)*W];GN=t+rnd(4500,9000)}
 if(GL){g.drawImage(cv,0,GB[0],W,GB[1],GB[2],GB[0],W,GB[1]);g.fillStyle='rgba(255,30,77,.1)';g.fillRect(0,GB[0],W,GB[1]);GL--}}
-function draw(){rain();shimmer();rings();glitch()}
+function draw(){rain();title();shimmer();rings();glitch()}
 function still(){for(var q=500;q--;){t+=16;draw()}}
 function frame(ts){t=ts;draw();raf=requestAnimationFrame(frame)}
 addEventListener('pointermove',function(e){PX=e.clientX*W/innerWidth});
