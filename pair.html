@@ -145,6 +145,35 @@ body>.btn{width:min(82vw,300px)!important;font-size:clamp(11px,3.4vw,13px)!impor
 .home-tag{font-size:clamp(10px,3vw,12px);letter-spacing:clamp(.1em,1.4vw,.2em)}
 @media(max-width:340px){.box::before{inset:7px}.box .btn{letter-spacing:.08em}}
 @media(max-height:560px){.bm-logo{width:68px;margin-bottom:2px}.box{padding:14px!important}.box h3{padding-bottom:8px}.box h4{margin:6px 0}}
+/* ===== v2: compact, bold, with steps ===== */
+body{font-weight:700}
+.box{width:min(92vw,440px)!important;padding:clamp(14px,4vw,22px)!important;font-weight:700}
+#text>br{display:none}
+.bm-logo{width:clamp(70px,20vw,88px);margin-bottom:4px}
+.box h3{font-size:clamp(14px,4.6vw,20px);margin:6px 0 8px;padding-bottom:10px}
+.box h4{margin:0 0 12px;font-size:clamp(10px,3vw,12px)}
+.input-container input{font-weight:700;font-size:17px}
+.input-container button{font-weight:900}
+#waiting-message{font-weight:700}
+#pair{display:block;margin:10px 0 0}
+#pair a,#pair small{font-weight:700}
+.countdown{font-weight:700;margin:6px 0 0}
+.steps{margin-top:14px;text-align:left}
+.steps-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:8px}
+.steps-head b{font-family:var(--disp);font-weight:900;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--c3);text-shadow:0 0 12px rgba(255,30,77,.6)}
+.steps-head small{font-weight:700;font-size:11px;letter-spacing:.06em;color:var(--mut);text-align:right}
+.steps-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.steps-grid li{display:flex;align-items:center;gap:9px;padding:9px 10px;border-radius:6px;background:linear-gradient(135deg,rgba(0,200,255,.1),rgba(47,107,255,.05));border:1px solid rgba(0,200,255,.3);border-left:3px solid var(--c3);min-width:0}
+.steps-grid .n{flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-family:var(--disp);font-weight:900;font-size:12px;color:#fff;background:linear-gradient(135deg,var(--c3),var(--c3d));box-shadow:0 0 12px rgba(255,30,77,.6)}
+.steps-grid div{min-width:0}
+.steps-grid strong{display:block;font-family:var(--body);font-weight:700;font-size:15px;line-height:1.1;color:var(--ink);text-transform:none;letter-spacing:.01em}
+.steps-grid span{display:block;margin-top:2px;font-weight:600;font-size:12px;line-height:1.15;color:var(--mut)}
+.tip{margin-top:8px;display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:6px;background:rgba(0,200,255,.08);border:1px dashed rgba(0,200,255,.5);font-weight:600;font-size:13px;line-height:1.2;color:var(--ink)}
+.tip b{color:var(--c1);font-weight:700}
+.tip i{flex:none;width:18px;height:18px;border-radius:50%;display:grid;place-items:center;font:900 11px var(--disp);color:var(--bg);background:var(--c1);box-shadow:0 0 10px var(--c1)}
+.music-button-container{margin-top:12px}
+.music-button{font-weight:900}
+@media(max-width:360px){.steps-grid{grid-template-columns:1fr}.steps-head small{display:none}}
 </style>
 </head>
 <body>
@@ -181,6 +210,16 @@ body>.btn{width:min(82vw,300px)!important;font-size:clamp(11px,3.4vw,13px)!impor
             <main id="pair"></main>
             <div class="countdown" id="countdown">Code expires in <span id="timer">60</span>s</div>
             <br>
+            <div class="steps">
+              <div class="steps-head"><b>How to Pair</b><small>Do this on your WhatsApp</small></div>
+              <ol class="steps-grid">
+                <li><b class="n">1</b><div><strong>Open WhatsApp</strong><span>Go to Settings</span></div></li>
+                <li><b class="n">2</b><div><strong>Linked Devices</strong><span>Tap &ldquo;Link a device&rdquo;</span></div></li>
+                <li><b class="n">3</b><div><strong>Enter Code</strong><span>Type the code shown above</span></div></li>
+                <li><b class="n">4</b><div><strong>Wait for Session</strong><span>Key lands in your WhatsApp DM</span></div></li>
+              </ol>
+              <div class="tip"><i>i</i><span><b>Tip:</b> Keep this tab open until your session key arrives.</span></div>
+            </div>
             <div class="music-button-container">
               <button class="music-button" id="musicBtn" onclick="toggleMusic()">
   ▶️ Play
